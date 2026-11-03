@@ -1,0 +1,224 @@
+// /run player.interact("ScriptPane", "/interface/unsorted/irden/bulletin_board/config.json")
+
+
+{
+  "paneLayer": "hud",
+  "dismissable": false,
+  "forumId": 1544921962948731001,
+  "betterTitle": {
+    "title": "Доска объявлений!",
+    "subtitle": "Meow",
+    "position": [
+      0,
+      0
+    ],
+    "icon": {
+      "file": "/interface/unsorted/irden/bulletin_board/ui/header/icon.png"
+    },
+    "padding": {
+      "left": 2,
+      "right": 2,
+      "top": 0,
+      "bottom": 1,
+      "iconGap": 2,
+      "lineGap": 2,
+      "lineHeight": 10
+    }
+  },
+  "gui": {
+    "background": {
+      "type": "background",
+      "fileHeader": "/interface/unsorted/irden/bulletin_board/body/header.png",
+      "fileBody": "/interface/unsorted/irden/bulletin_board/body/body.png",
+      "fileFooter": "/interface/unsorted/irden/bulletin_board/body/footer.png"
+    },
+    "close": {
+      "type": "button",
+      "base": "/interface/x.png",
+      "hover": "/interface/xhover.png",
+      "pressed": "/interface/xpress.png",
+      "pressedOffset": [
+        0,
+        0
+      ],
+      "zlevel": 1,
+      "position": [
+        229,
+        243
+      ]
+    },
+    "create_note": {
+      "type": "button",
+      "callback": "createNote",
+      "base": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/add.png:base",
+      "hover": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/add.png:hover",
+      "pressed": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/add.png:selected",
+      "pressedOffset": [
+        0,
+        0
+      ],
+      "zlevel": 1,
+      "position": [
+        226,
+        219
+      ],
+      "data": {
+        "defaultTooltip": "Создать объявление"
+      }
+    },
+    "sa_notes": {
+      "type": "scrollArea",
+      "rect": [
+        3,
+        10,
+        238,
+        218
+      ],
+      "children": {
+        "list_notes": {
+          "type": "list",
+          "callback": "null",
+          "columns": 2,
+          "fillDown": false,
+          "scissoring": true,
+          "schema": {
+            "spacing": [
+              1,
+              1
+            ],
+            "memberSize": [
+              110,
+              110
+            ],
+            "listTemplate": {
+              "background_frame": {
+                "type": "button",
+                "callback": "openNote",
+                "base": "/interface/unsorted/irden/bulletin_board/ui/post_window/window.png",
+                "hover": "/interface/unsorted/irden/bulletin_board/ui/post_window/window.png?brightness=25",
+                "pressed": "/interface/unsorted/irden/bulletin_board/ui/post_window/window.png?brightness=25",
+                "pressedOffset": [
+                  1,
+                  -1
+                ],
+                "position": [
+                  0,
+                  0
+                ],
+                "zlevel": 0,
+                "data": {
+                  "test": "test"
+                },
+                "children": {
+                  "lyt_name": {
+                    "type": "layout",
+                    "layoutType": "basic",
+                    "rect": [
+                      0,
+                      93,
+                      108,
+                      108
+                    ],
+                    "scissoring": true,
+                    "children": {
+                      "lbl_name": {
+                        "type": "label",
+                        "hAnchor": "left",
+                        "value": "Placeholder",
+                        "charLimit": 46,
+                        "position": [
+                          4,
+                          4
+                        ]
+                      }
+                    }
+                  },
+                  "lyt_message": {
+                    "type": "layout",
+                    "layoutType": "basic",
+                    "rect": [
+                      2,
+                      18,
+                      108,
+                      92
+                    ],
+                    "scissoring": true,
+                    "children": {
+                      "lbl_message": {
+                        "type": "label",
+                        "hAnchor": "left",
+                        "vAnchor": "top",
+                        "value": "Placeholder. Если вы это видите - значит что-то пошло не так. Сообщиете технической администрации",
+                        "charLimit": 300,
+                        "wrapWidth": 102,
+                        "position": [
+                          2,
+                          72
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "size": [222, 222]
+        }
+      },
+      "zlevel": 1
+    },
+    "chk_archived": {
+      "type": "button",
+      "position": [1, 1],
+      "checkable": true,
+      "checked": false,
+      "base": "/interface/crafting/checkboxnocheck.png",
+      "hover": "/interface/crafting/checkboxnocheck.png",
+      "baseImageChecked": "/interface/crafting/checkboxcheck.png",
+      "hoverImageChecked": "/interface/crafting/checkboxcheck.png",
+      "callback": "archived",
+      "data": {
+      "defaultTooltip" : "Старые объявления. Загрузка может быть долгой."
+      }
+    },
+    "lyt_search_bar": {
+      "type": "layout",
+      "position": [2, 221],
+      "layoutType": "basic",
+      "size": [223, 11],
+      "children": {
+        "tbx_search": {
+          "type": "textbox",
+          "position": [1, 1],
+          "hint": "Нажмите для поиска",
+          "maxWidth": 200,
+          "size": [211, 10],
+          "callback": "searchInput"
+        },
+        "btn_clear_search": {
+          "type": "button",
+          "base": "/interface/x.png",
+          "hover": "/interface/xhover.png",
+          "pressed": "/interface/xpress.png",
+          "pressedOffset": [0, 0],
+          "zlevel": 1,
+          "position": [213, 0],
+          "callback": "clearSearch"
+        }
+      },
+      "scissoring": true
+    }
+  },
+  "scriptWidgetCallbacks": [
+    "createNote",
+    "archived",
+    "searchInput",
+    "clearSearch"
+  ],
+  "scripts": [
+    "/interface/unsorted/irden/bulletin_board/main.lua",
+    "/scripts/interface_locker/locker.lua",
+    "/interface/unsorted/irden/bulletin_board/constants.lua",
+    "/interface/StarboundTextboxInterface/better_title/better_title.lua"
+  ]
+}

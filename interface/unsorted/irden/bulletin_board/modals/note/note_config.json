@@ -1,0 +1,183 @@
+{
+  "paneLayer" : "hud",
+  "dismissable" : false,
+  "betterTitle": {
+    "title": "Объявление!",
+    "subtitle": "Meow",
+    "position": [
+      0,
+      0
+    ],
+    "icon": {
+      "file": "/interface/unsorted/irden/bulletin_board/ui/header/icon.png"
+    },
+    "padding": {
+      "left": 2,
+      "right": 2,
+      "top": 0,
+      "bottom": 1,
+      "iconGap": 2,
+      "lineGap": 2,
+      "lineHeight": 10
+    }
+  },
+  "gui": {
+    "background": {
+      "type": "background",
+      "fileHeader": "/interface/unsorted/irden/bulletin_board/modals/note/body/header.png",
+      "fileBody": "/interface/unsorted/irden/bulletin_board/modals/note/body/body.png",
+      "fileFooter": "/interface/unsorted/irden/bulletin_board/modals/note/body/footer.png"
+    },
+    "close": {
+      "type": "button",
+      "base": "/interface/x.png",
+      "hover": "/interface/xhover.png",
+      "pressed": "/interface/xpress.png",
+      "pressedOffset": [
+        0,
+        0
+      ],
+      "zlevel": 1,
+      "position": [
+        310,
+        378
+      ]
+    },
+    "lyt_content": {
+      "type": "layout",
+      "position": [2, 136],
+      "layoutType": "basic",
+      "size": [316, 217],
+      "children": {},
+      "zlevel": 1
+    },
+    "lyt_create": {
+      "type": "layout",
+      "layoutType": "basic",
+      "position": [2, 136],
+      "size": [316, 217],
+      "visible": false,
+      "zlevel": 1,
+      "children": {
+        "lbl_create_caption": {
+          "type": "label",
+          "position": [2, 202],
+          "hAnchor": "left",
+          "value": "Заголовок объявления"
+        },
+        "img_name_frame": {
+          "type": "imageStretch",
+          "position": [0, 184],
+          "size": [303, 15],
+          "zlevel": 1,
+          "direction": "horizontal",
+          "stretchSet": {
+            "type": "stretch",
+            "begin": "/interface/unsorted/irden/bulletin_board/ui/stretch/frame/begin.png",
+            "inner": "/interface/unsorted/irden/bulletin_board/ui/stretch/frame/inner.png",
+            "end": "/interface/unsorted/irden/bulletin_board/ui/stretch/frame/end.png"
+          },
+          "children": {
+            "tbx_note_name": {
+              "type": "textbox",
+              "position": [4, 3],
+              "maxWidth": 300,
+              "size": [304, 11],
+              "hint": "Коротко и по делу. Enter - создать.",
+              "callback": "null",
+              "enterKey": "submitNote",
+              "zlevel": 2
+            }
+          }
+        },
+        "lbl_create_hint": {
+          "type": "label",
+          "position": [13, 170],
+          "hAnchor": "left",
+          "vAnchor": "top",
+          "wrapWidth": 280,
+          "value": "Текст объявления наберите в поле снизу. Поддерживается разметка, превью - по кнопке справа от поля. Enter - создать, Shift+Enter - перенос строки."
+        }
+      }
+    },
+    "lyt_text_raw": {
+      "type": "layout",
+      "position": [2, 10],
+      "layoutType": "basic",
+      "size": [316, 107],
+      "children": {},
+      "visible": true,
+      "zlevel": 1
+    },
+    "lyt_text_parsed": {
+      "type": "layout",
+      "position": [2, 10],
+      "layoutType": "basic",
+      "size": [316, 107],
+      "children": {},
+      "visible": false,
+      "zlevel": 1
+    },
+    "enablePreview": {
+      "type": "button",
+      "position": [290, 102],
+      "checkable": true,
+      "checked": false,
+      "base": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/refresh.png:base",
+      "hover": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/refresh.png:hover",
+      "baseImageChecked": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/refresh.png:selected",
+      "hoverImageChecked": "/interface/unsorted/irden/bulletin_board/ui/buttons/small/refresh.png:selected",
+      "zlevel": 1,
+      "data": {
+      "defaultTooltip" : "Включить превью форматирования текста." 
+      }
+    },
+    "lyt_reply": {
+      "type": "layout",
+      "position": [2, 120],
+      "layoutType": "basic",
+      "size": [303, 60],
+      "children": {
+        "close_reply": {
+          "type": "button",
+          "base": "/interface/x.png",
+          "hover": "/interface/xhover.png",
+          "pressed": "/interface/xpress.png",
+          "pressedOffset": [1, 1],
+          "zlevel": 3,
+          "position": [292, 1],
+          "callback": "closeReplyCallback"
+        },
+        "reply_frame": {
+          "type": "image",
+          "position": [0, 0],
+          "file": "/interface/unsorted/irden/bulletin_board/ui/reply/reply_frame.png",
+          "children": {
+            "lbl_content": {
+              "type": "label",
+              "position": [2, 3],
+              "value": "Редактирование...",
+              "hAnchor": "left",
+              "wrapWidth": 288
+            }
+          },
+          "zlevel": 2
+        }
+      },
+      "visible": false
+    }
+  },
+  "scriptWidgetCallbacks": [
+    "enablePreview",
+    "closeReplyCallback",
+    "submitNote"
+  ],
+  "scripts": [
+    "/interface/unsorted/irden/bulletin_board/modals/note/note_main.lua",
+    "/interface/StarboundTextboxInterface/markdown/scripts/md.lua",
+    "/interface/StarboundTextboxInterface/textarea/scripts/textbox.lua",
+    "/scripts/interface_locker/locker.lua",
+    "/interface/unsorted/irden/bulletin_board/constants.lua",
+    "/interface/StarboundTextboxInterface/better_title/better_title.lua"
+  ]
+}
