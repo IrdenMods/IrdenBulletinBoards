@@ -342,12 +342,12 @@ function replyText(content)
     end
     if not self.editMode.enabled then
         request(
-                "sendText", { content = content, threadId = self.threadId },
+                "sendText", {forumId = self.forumId, content = content, threadId = self.threadId },
                 onSuccess, onError
         )
     else
         request(
-                "editText", { content = content, threadId = self.threadId, messageId = self.editMode.messageId },
+                "editText", { forumId = self.forumId, content = content, threadId = self.threadId, messageId = self.editMode.messageId },
                 onSuccess, onError
         )
     end
