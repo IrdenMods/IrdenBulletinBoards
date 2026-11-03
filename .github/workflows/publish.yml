@@ -16,4 +16,4 @@ jobs:
       release: true
       upload_to_gd: true
       notify_discord: true
-      mod_name: "IrdenStorageInterface"
+      mod_name: "IrdenBulletinBoards"
