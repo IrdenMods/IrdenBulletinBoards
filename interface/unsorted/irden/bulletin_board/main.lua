@@ -106,7 +106,7 @@ function initNotes(response)
         request(
             "firstMessage", thread.starterRef,
             function (firstMessage)
-                widget.setText(messageLabelPath, firstMessage)
+                widget.setText(messageLabelPath, firstMessage or "Оригинальное сообщение удалено")
             end,
             function (error)
                 widget.setText(messageLabelPath, error)
