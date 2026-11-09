@@ -317,7 +317,6 @@ end
 ---@public
 ---@param widgetName string can be nil
 ---@param options TextboxSetupOptions?
----@return Textbox
 function Textbox:setup(widgetName, options)
     options = options or {}
     local inst = Textbox.new()
