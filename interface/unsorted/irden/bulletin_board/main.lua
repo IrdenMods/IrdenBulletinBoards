@@ -148,6 +148,7 @@ function openNote(_, data)
     openNotePane({
         mode = noteMode.VIEW,
         threadId = data.threadId,
+        forumId = self.forumId,
         threadName = data.name
     })
 end
